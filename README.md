@@ -2,6 +2,14 @@
 
 - [参考](https://eddycjy.com/go-categories/)
 
+## 环境
+
+- OS: Manjaro 20.0.3 Lysia
+
+- Kernel： x86_64 Linux 5.6.16-1-MANJARO
+
+- CPU: Intel Core i5-4210M @ 4x 3.2GHz 
+
 ## usage
 
 ### MariaDB
@@ -155,6 +163,7 @@
 - 需要进入 docker 然后创建数据库
 
 ```bash
+# 启动服务
 systemctl start docker
 # 查看 containes
 docker ps -a
@@ -171,3 +180,17 @@ docker exec it <container_id> bash
 # link
 docker run --link <image> <image>
 ```
+
+- docker 使用 scratch
+
+## mysql 挂载数据卷
+
+- 数据卷被设计用来持久化数据的，其生命周期独立于容器
+
+- 可以提供给一个或者多个容器使用
+
+    - 数据卷可以在容器间共享和重用
+
+    - 对数据卷的修改会马上生效
+
+    - 数据卷的更新不会影响镜像
