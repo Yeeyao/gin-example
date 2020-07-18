@@ -10,6 +10,7 @@ require (
 	github.com/go-ini/ini v1.57.0
 	github.com/go-playground/validator/v10 v10.3.0 // indirect
 	github.com/jinzhu/gorm v1.9.14
+	github.com/robfig/cron v1.2.0
 	github.com/unknwon/com v1.0.1
 	golang.org/x/sys v0.0.0-20200625212154-ddb9806d33ae // indirect
 	google.golang.org/protobuf v1.25.0 // indirect

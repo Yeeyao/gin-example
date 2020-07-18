@@ -162,6 +162,10 @@
 
 - 需要进入 docker 然后创建数据库
 
+- 删除过程中，如果 image 被 container 使用，则不能成功删除，只是删除 tag
+
+- [删除参考](http://yaxin-cn.github.io/Docker/how-to-delete-a-docker-image.html)
+
 ```bash
 # 启动服务
 systemctl start docker
@@ -179,6 +183,12 @@ docker <command> --help
 docker exec it <container_id> bash
 # link
 docker run --link <image> <image>
+# 停止容器
+docker stop <container_name>
+# 删除容器
+docker rm <container_id>
+# 删除镜像
+docker rmi <image_name>
 ```
 
 - docker 使用 scratch
@@ -194,3 +204,17 @@ docker run --link <image> <image>
     - 对数据卷的修改会马上生效
 
     - 数据卷的更新不会影响镜像
+
+## step 10
+
+- gorm callbacks
+
+- 修改之前在 model 模块下 article.go 以及 tag.go 中两个操作函数，替换为使用回调
+
+- 添加 gorm 的更新和删除的 callbacks
+
+## step 11
+
+- cron 定时
+
+- 使用 cron 定时硬删除无效数据
