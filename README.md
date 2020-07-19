@@ -12,6 +12,8 @@
 
 ## usage
 
+- go.mod 中 module 将被默认设置成后面的部分
+
 ### MariaDB
 
 - 当建立数据库然后 root 默认没有密码，使用普通 linux 账户 登录 root 则需要先设置密码
