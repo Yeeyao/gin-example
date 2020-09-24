@@ -14,19 +14,15 @@ import (
 var db *gorm.DB
 
 type Model struct {
-	ID         int `gorm:"primary_key" json: "id"`
-	CreatedOn  int `json:"created on"`
-	ModifiedOn int `json: "modified_on"`
+	ID         int `gorm:"primary_key" json:"id"`
+	CreatedOn  int `json:"created_on"`
+	ModifiedOn int `json:"modified_on"`
 	DeletedOn  int `json:"deleted_on"`
 }
 
 func Setup() {
 
 	var err error
-
-	if err != nil {
-		log.Fatal(2, "Fail to get section 'database': %v", err)
-	}
 
 	db, err = gorm.Open(setting.DatabaseSetting.Type, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		setting.DatabaseSetting.User,
@@ -35,8 +31,7 @@ func Setup() {
 		setting.DatabaseSetting.Name))
 
 	if err != nil {
-		log.Println(err)
-
+		log.Fatalf("models.Setup err: %v", err)
 	}
 
 	gorm.DefaultTableNameHandler = func(db *gorm.DB, defaultTableName string) string {
@@ -82,7 +77,6 @@ func updateTimeStampForCreateCallback(scope *gorm.Scope) {
 func updateTimeStampForUpdateCallback(scope *gorm.Scope) {
 	if _, ok := scope.Get("gorm:update_column"); !ok {
 		scope.SetColumn("ModifiedOn", time.Now().Unix())
-
 	}
 }
 

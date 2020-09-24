@@ -2,6 +2,7 @@ package logging
 
 import (
 	"fmt"
+	"github.com/EDDYCJY/go-gin-example/pkg/file"
 	"log"
 	"os"
 	"path/filepath"
@@ -32,7 +33,7 @@ func Setup() {
 	var err error
 	filePath := getLogFilePath()
 	fileName := getLogFileName()
-	F, err = openLogFile(fileName, filePath)
+	F, err = file.MustOpen(fileName, filePath)
 	if err != nil {
 		log.Fatalln(err)
 	}

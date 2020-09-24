@@ -220,3 +220,11 @@ docker rmi <image_name>
 - cron 定时
 
 - 使用 cron 定时硬删除无效数据
+
+## step 12
+
+- 图片处理
+
+## step 13
+
+-redis.go 中需要 go get github.com/gomodule/redigo 获得该 module
