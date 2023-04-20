@@ -227,4 +227,12 @@ docker rmi <image_name>
 
 ## step 13
 
+- 这里文档中没有提到 setting 需要增加 redis 的设置
+
+## step 12
+
+- 图片处理
+
+## step 13
+
 -redis.go 中需要 go get github.com/gomodule/redigo 获得该 module
